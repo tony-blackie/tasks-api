@@ -40,7 +40,7 @@ export class TasksService {
 
         task.status = status;
 
-        task.save();
+        await task.save();
 
         return task;
     }
@@ -53,9 +53,9 @@ export class TasksService {
     //             (status && task.status === status),
     //     );
     // }
-    // getAllTasks(): Task[] {
-    //     return this.tasks;
-    // }
+    async getAllTasks(): Promise<Task[]> {
+        return await this.taskRepository.find();
+    }
     // getTaskById(id: string): Task {
     //     const task = this.tasks.find((task) => task.id === id);
     //     if (!task) {
