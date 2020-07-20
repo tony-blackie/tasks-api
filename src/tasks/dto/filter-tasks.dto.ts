@@ -4,9 +4,9 @@ import { IsOptional, IsIn, IsNotEmpty } from 'class-validator';
 export class FilterTasksDto {
     @IsOptional()
     @IsNotEmpty()
-    search: string;
+    search?: string;
 
     @IsOptional()
     @IsIn(Object.keys(TaskStatus))
-    status: TaskStatus;
+    status?: TaskStatus;
 }

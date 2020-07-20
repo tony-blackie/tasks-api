@@ -3,7 +3,7 @@ import { TaskStatus } from './task.types';
 
 @Entity()
 export class TaskEntity extends BaseEntity {
-    constructor(title, description, status) {
+    constructor(title: string, description: string, status: TaskStatus) {
         super();
 
         this.title = title;

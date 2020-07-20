@@ -32,7 +32,7 @@ export class TasksController {
         //     );
         // }
 
-        return this.tasksService.getAllTasks();
+        return this.tasksService.getTasks(filterDto);
     }
 
     @Get('/:id')
