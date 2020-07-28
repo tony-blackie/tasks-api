@@ -13,12 +13,12 @@ export const DB_CONFIG_LOCAL: TypeOrmModuleOptions = {
 
 export const DB_CONFIG_PROD: TypeOrmModuleOptions = {
     type: 'postgres',
-    host: 'ec2-54-247-118-139.eu-west-1.compute.amazonaws.com',
+    host: 'ec2-34-225-162-157.compute-1.amazonaws.com',
     port: 5432,
-    username: 'jvoflhhwonkswq',
+    username: 'shntukujjivkdw',
     password:
-        'f9d19882812f41cd08cbaf3d57c1cbdb0b809eed9db2948579450848a6c9f3ad',
-    database: 'd3jgvavu5ffrk1',
+        'a018ea7adb4ae63b2e8ebda075668e1f6baba104ea5af7936941468c3ba662ee',
+    database: 'd8mv1fgbfrktuq',
     entities: [__dirname + '/../**/*.entity.{js,ts}'],
     synchronize: true,
     ssl: true,
