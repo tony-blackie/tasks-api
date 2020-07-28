@@ -21,4 +21,5 @@ export const DB_CONFIG_PROD: TypeOrmModuleOptions = {
     database: 'd3jgvavu5ffrk1',
     entities: [__dirname + '/../**/*.entity.{js,ts}'],
     synchronize: true,
+    ssl: true,
 };
