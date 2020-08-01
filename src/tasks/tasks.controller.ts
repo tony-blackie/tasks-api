@@ -18,7 +18,7 @@ import { FilterTasksDto } from './dto/filter-tasks.dto';
 import { TaskStatusValidationPipe } from './pipes/task-status-validation.pipe';
 import { TaskEntity as Task } from './task.entity';
 
-@Controller('tasks')
+@Controller('items')
 export class TasksController {
     constructor(private tasksService: TasksService) {}
 

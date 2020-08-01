@@ -13,7 +13,7 @@ export class TasksService {
         @InjectRepository(TaskRepository)
         private taskRepository: TaskRepository,
     ) {
-        // this.taskRepository = taskRepository;
+        this.taskRepository = taskRepository;
     }
 
     async getTaskById(id: number): Promise<Task> {
@@ -27,9 +27,9 @@ export class TasksService {
     }
 
     async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
-        const { title, description } = createTaskDto;
+        const { title } = createTaskDto;
 
-        const task = new Task(title, description, TaskStatus.OPEN);
+        const task = new Task({ title, status: TaskStatus.NOT_IN_STOCK });
 
         await task.save();
 
