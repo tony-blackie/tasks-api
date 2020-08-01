@@ -7,7 +7,7 @@
     "database": "taskmanagement",
     "entities": ["src/**/*.entity.{js,ts}"],
     "migrationsTableName": "migrations",
-    "migrations": ["migrations/*.js"],
+    "migrations": ["dist/migrations/*.js"],
     "cli": {
         "migrationsDir": "migrations"
     },

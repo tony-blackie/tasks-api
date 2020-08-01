@@ -29,7 +29,7 @@ export class TasksService {
     async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
         const { title } = createTaskDto;
 
-        const task = new Task({ title, status: TaskStatus.NOT_IN_STOCK });
+        const task = new Task(title, TaskStatus.NOT_IN_STOCK);
 
         await task.save();
 
