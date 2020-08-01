@@ -8,6 +8,7 @@
         "prebuild": "rimraf dist",
         "build": "nest build",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+        "migrate": "yarn typeorm migration:generate -n TaskEntityMigration && yarn build && yarn typeorm migration:run",
         "start": "cross-env NODE_ENV=development nest start --watch",
         "start:debug": "nest start --debug --watch",
         "start:prod": "cross-env NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/main",
