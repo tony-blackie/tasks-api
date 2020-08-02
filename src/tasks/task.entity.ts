@@ -1,16 +1,11 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-// import { TaskStatus } from './task.types';
-
-enum TaskStatus {
-    IN_STOCK = 'IN_STOCK',
-    NOT_IN_STOCK = 'NOT_IN_STOCK',
-}
+import { TaskStatus } from './task.types';
 
 @Entity()
 export class TaskEntity extends BaseEntity {
     constructor(
         title: string,
-        status: TaskStatus,
+        status: TaskStatus = TaskStatus.NOT_IN_STOCK,
         imageUrl: string | null = null,
         price: number | null = null,
     ) {

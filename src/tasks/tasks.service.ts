@@ -27,9 +27,9 @@ export class TasksService {
     }
 
     async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
-        const { title } = createTaskDto;
+        const { title, status, price, imageUrl } = createTaskDto;
 
-        const task = new Task(title, TaskStatus.NOT_IN_STOCK);
+        const task = new Task(title, status, imageUrl, price);
 
         await task.save();
 
