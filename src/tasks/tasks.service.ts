@@ -54,21 +54,24 @@ export class TasksService {
     //             (status && task.status === status),
     //     );
     // }
-    async getTasks({ status, search }: FilterTasksDto): Promise<Task[]> {
+    async getTasks({ limit, offset }: FilterTasksDto): Promise<Task[]> {
         const tasksQueryBuilder = this.taskRepository.createQueryBuilder(
-            'task',
+            'items',
         );
 
-        if (status) {
-            tasksQueryBuilder.andWhere('task.status = :status', { status });
-        }
+        // if (status) {
+        //     tasksQueryBuilder.andWhere('task.status = :status', { status });
+        // }
 
-        if (search) {
-            tasksQueryBuilder.andWhere(
-                'task.title LIKE :search OR task.description LIKE :search',
-                { search: `%${search}%` },
-            );
-        }
+        // if (search) {
+        //     tasksQueryBuilder.andWhere(
+        //         'task.title LIKE :search OR task.description LIKE :search',
+        //         { search: `%${search}%` },
+        //     );
+        // }
+
+        tasksQueryBuilder.offset(offset);
+        tasksQueryBuilder.limit(limit);
 
         return await tasksQueryBuilder.getMany();
     }
