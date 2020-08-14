@@ -57,7 +57,7 @@ export class TasksService {
     async getTasks({
         limit,
         offset,
-    }: FilterTasksDto): Promise<{ tasks: Task[]; count: number }> {
+    }: FilterTasksDto): Promise<{ items: Task[]; count: number }> {
         const tasksQueryBuilder = this.taskRepository.createQueryBuilder(
             'items',
         );
@@ -76,10 +76,10 @@ export class TasksService {
         tasksQueryBuilder.offset(offset);
         tasksQueryBuilder.limit(limit);
 
-        const tasks = await tasksQueryBuilder.getMany();
+        const items = await tasksQueryBuilder.getMany();
         const count = await this.taskRepository.count();
 
-        return { tasks, count };
+        return { items, count };
     }
     // getTaskById(id: string): Task {
     //     const task = this.tasks.find((task) => task.id === id);

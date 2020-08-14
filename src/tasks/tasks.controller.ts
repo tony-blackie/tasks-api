@@ -27,7 +27,7 @@ export class TasksController {
     @UsePipes(ValidationPipe)
     getTasks(
         @Query() filterDto: FilterTasksDto,
-    ): Promise<{ tasks: Task[]; count: number }> {
+    ): Promise<{ items: Task[]; count: number }> {
         // if (Object.keys(filterDto).length) {
         //     return this.tasksService.getFilteredTasks(
         //         filterDto.search,
