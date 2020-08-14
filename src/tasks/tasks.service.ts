@@ -91,10 +91,15 @@ export class TasksService {
     //     this.tasks.push(task);
     //     return task;
     // }
-    // deleteTask(id: string): Task[] {
-    //     this.getTaskById(id); //throw exception if task is not found
-    //     return this.tasks.filter((task) => task.id === id);
-    // }
+    async deleteTask(id: number): Promise<Task> {
+        //this.getTaskById(id); //throw exception if task is not found
+
+        const task = await this.getTaskById(id);
+
+        await this.taskRepository.remove((task as unknown) as Task);
+
+        return task;
+    }
     // updateTaskStatus(id: string, status: TaskStatus): Task[] {
     //     const taskIndex = this.tasks.findIndex((task) => task.id === id);
     //     this.tasks[taskIndex].status = status;
